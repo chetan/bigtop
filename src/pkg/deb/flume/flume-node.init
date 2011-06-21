@@ -65,13 +65,13 @@ flume_check_pidfile() {
 
 start() {
   echo -n $"Starting $desc (flume-node): "
-  su -s /bin/sh  flume -c '${FLUME_HOME}/bin/flume-daemon.sh start node'
+  su -s /bin/sh  flume -c '${FLUME_HOME}/bin/flume-daemon.sh start node_nowatch'
   echo
 }
 
 stop() {
   echo -n $"Stopping $desc (flume-node): "
-  su -s /bin/sh  flume -c '${FLUME_HOME}/bin/flume-daemon.sh stop node'
+  su -s /bin/sh  flume -c '${FLUME_HOME}/bin/flume-daemon.sh stop node_nowatch'
   [ $? -eq 0 ] && rm -f $FLUME_PID
   echo
 }
